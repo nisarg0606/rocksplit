@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "aws.accessKey",
+      "type": "java.lang.String",
+      "description": "A description for 'aws.accessKey'"
+    },
+    {
+      "name": "amazon.dynamodb.region",
+      "type": "java.lang.String",
+      "description": "A description for 'amazon.dynamodb.region'"
+    }
+  ]
+}
