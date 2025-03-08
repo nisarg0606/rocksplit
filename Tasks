@@ -1,0 +1,49 @@
+pt1:- Create the Group service
+pt2:- Create the individual expense services (can add more than two users in transaction)
+    Note:-Point 2 can be managed by Group service not neccessary to have another service
+
+pt3:- Create the Settelments Service where Settelments can be done individually or in a particular group (Can be simpler but we can have this feature)
+Note:---------
+User need to have other users in their list for adding them in any expensis
+    (if they we added in group add all users in that group to every users list
+    for example : In Group1:-
+                            User1, User2, User3 added)
+                            If they are not in each otherList add them
+                            User1List:- User2, User3 {here It is posibility that the user2 was already in list but not user3 then just add user3}
+                            User2List
+(All Expenseis can be managed but expense service all other services can call/user expence services to caluclate the split or balance)
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!Expense Services Thoughts and Implimentation !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Think of what paramaters are neccesary for individual balances calculation
+Think how you can differenciate the expence done in group(think about all groups individually) and individual
+if pt3 is implimented think how will you handle settelment of a group and individual
+edit will take care of settled balance and remaning balance we cannot know which transaction was settled
+
+Thinking about group(Initial thoughts just to add will think about edit latter):-
+    I will get the
+            User who paid
+            User who are involved in transaction
+            Groupid
+            Balance
+            the % of split for all individual user(Managed by Group service no matter what the type is)
+
+    what should be returned
+            the list of an object which can describe the
+                Groupid
+                UserId
+                their balance( +/ -),
+                current split
+                their current group balance
+                UserId (to whom they need to pay, if user is the one who paid you can keep it null)
+                Temporary Transaction Id
+
+Thinking about individual():-
+    Same as Group but just no Group-Id
+
+what expense table can look like:-
+    UserId FK, GroupId(nullable) FK. their balance, their current split, transactionIdFK, UserId(who paid)FK
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

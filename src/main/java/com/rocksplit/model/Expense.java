@@ -55,10 +55,11 @@ public class Expense {
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
-    
+
+    //not neccesary should be in Settlement table
     @Column(name = "is_settled")
     private boolean isSettled = false;
-    
+
     @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Balance> balances = new ArrayList<>();
     

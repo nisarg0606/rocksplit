@@ -1,5 +1,7 @@
 package com.rocksplit.model;
 
+// No need of this table although we can have a object which can have all this and a current split to differnciate between all the transaction as we have it in splitwise
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
