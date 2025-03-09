@@ -54,8 +54,8 @@ public class User {
     
     private boolean enabled = true;
     
-    @ManyToMany(mappedBy = "members", fetch = FetchType.LAZY)
-    private Set<Group> groups = new HashSet<>();
+//    @ManyToMany(mappedBy = "members", fetch = FetchType.LAZY)
+//    private Set<Group> groups = new HashSet<>();
     
     @Column(name = "default_currency")
     private String defaultCurrency = "USD";

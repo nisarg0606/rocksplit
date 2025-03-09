@@ -1,6 +1,6 @@
 package com.rocksplit.dto;
 
-import com.rocksplit.model.Expense.SplitType;
+//import com.rocksplit.model.Expense.SplitType;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -18,7 +18,7 @@ public class ExpenseDTO {
     private String paidByName;
     private String groupId;
     private String groupName;
-    private SplitType splitType;
+//    private SplitType splitType;
     private String receiptImage;
     private String merchant;
     private String location;

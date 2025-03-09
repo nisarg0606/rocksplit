@@ -21,49 +21,31 @@ public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    
-    @Column(nullable = false)
-    private String title;
-    
-    @Column(nullable = false)
-    private BigDecimal amount;
-    
-    private String currency = "USD";
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "paid_by", nullable = false)
-    private User paidBy;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "group_id")
+
+    @ManyToOne
+    @JoinColumn(name = "group_id", nullable = true)
     private Group group;
-    
-    @Enumerated(EnumType.STRING)
-    @Column(name = "split_type", nullable = false)
-    private SplitType splitType = SplitType.EQUAL;
-    
-    @Column(name = "receipt_image")
-    private String receiptImage;
-    
-    private String merchant;
-    
-    private String location;
-    
-    @Column(name = "expense_date")
-    private LocalDateTime expenseDate;
-    
-    @CreationTimestamp
-    @Column(name = "created_at", updatable = false)
+
+    @ManyToOne
+    @JoinColumn(name = "created_by")
+    private User createdBy;
+
+    private String description;
+
+    private BigDecimal amount;
+
+    private String currency;
+
+    private LocalDateTime date;
+
+    private String expenseType;
+
+    private String receiptImageUrl;
+
     private LocalDateTime createdAt;
 
-    //not neccesary should be in Settlement table
-    @Column(name = "is_settled")
-    private boolean isSettled = false;
+    private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Balance> balances = new ArrayList<>();
-    
-    public enum SplitType {
-        EQUAL, EXACT, PERCENTAGE
-    }
+    @ManyToOne @JoinColumn(name = "category_id")
+    private Category category;
 }
