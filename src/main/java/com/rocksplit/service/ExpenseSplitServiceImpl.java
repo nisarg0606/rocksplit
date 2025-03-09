@@ -20,7 +20,7 @@ public class ExpenseSplitServiceImpl implements ExpenseSplitService{
     private UserRepository userRepository;
 
     @Override
-    public List<BalanceDTO> calculateSplit(BigDecimal total, List<String> userIds, Expense.SplitType splitType, Map<String, BigDecimal> splitDetails) {
+    public List<BalanceDTO> calculateSplit(BigDecimal total, List<String> userIds, Map<String, BigDecimal> splitDetails) {
         //For Group expensis
         /*
         * get Group- Id

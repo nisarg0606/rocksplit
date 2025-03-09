@@ -41,13 +41,13 @@ public class Group {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
     
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-        name = "user_groups",
-        joinColumns = @JoinColumn(name = "group_id"),
-        inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private Set<User> members = new HashSet<>();
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(
+//        name = "user_groups",
+//        joinColumns = @JoinColumn(name = "group_id"),
+//        inverseJoinColumns = @JoinColumn(name = "user_id")
+//    )
+//    private Set<User> members = new HashSet<>();
     
     @Column(name = "group_image")
     private String groupImage;
@@ -55,18 +55,18 @@ public class Group {
     @Column(nullable = false)
     private String currency = "USD";
     
-    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Expense> expenses = new ArrayList<>();
+//    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Expense> expenses = new ArrayList<>();
     
     // Helper method to add a member
-    public void addMember(User user) {
-        members.add(user);
-        user.getGroups().add(this);
-    }
-    
-    // Helper method to remove a member
-    public void removeMember(User user) {
-        members.remove(user);
-        user.getGroups().remove(this);
-    }
+//    public void addMember(User user) {
+//        members.add(user);
+//        user.getGroups().add(this);
+//    }
+//
+//    // Helper method to remove a member
+//    public void removeMember(User user) {
+//        members.remove(user);
+//        user.getGroups().remove(this);
+//    }
 }
