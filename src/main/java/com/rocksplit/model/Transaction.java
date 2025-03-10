@@ -2,45 +2,40 @@ package com.rocksplit.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Table(name = "settlements")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Settlement {
-    
+@Builder
+@Table(name = "transactions")
+public class Transaction {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @ManyToOne
-    @JoinColumn(name = "payer_id")
-    private User payer;
+    @ManyToOne @JoinColumn(name = "from_user_id")
+    private User fromUser;
 
-    @ManyToOne
-    @JoinColumn(name = "receiver_id")
-    private User receiver;
+    @ManyToOne @JoinColumn(name = "to_user_id")
+    private User toUser;
 
     private BigDecimal amount;
 
     private String currency;
 
-    private String status;
-
     private LocalDateTime date;
 
-    private Enum<SettlementMethod> settlementMethod;
-
     private String notes;
-    
-    public enum SettlementMethod {
-        CASH, BANK_TRANSFER, UPI, PAYPAL, VENMO, OTHER
-    }
+
+    @ElementCollection
+    private List<Long> relatedExpenseIds;
 }

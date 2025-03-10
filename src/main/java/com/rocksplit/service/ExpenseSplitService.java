@@ -2,7 +2,6 @@ package com.rocksplit.service;
 
 import com.rocksplit.dto.BalanceDTO;
 import com.rocksplit.dto.ExpenseDTO;
-import com.rocksplit.model.Expense.SplitType;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -15,13 +14,11 @@ public interface ExpenseSplitService {
      *
      * @param total     The total expense amount
      * @param userIds   List of user IDs to split the expense among
-     * @param splitType The type of split (EQUAL, EXACT, PERCENTAGE)
      * @param splitDetails Map containing user-specific split details (amounts or percentages)
      * @return List of BalanceDTO with calculated splits
      */
     List<BalanceDTO> calculateSplit(BigDecimal total, 
-                                   List<String> userIds, 
-                                   SplitType splitType, 
+                                   List<String> userIds,
                                    Map<String, BigDecimal> splitDetails);
 
     /**
