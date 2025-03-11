@@ -12,13 +12,13 @@ import java.util.Set;
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
     
-    Optional<User> findByEmail(String email);
-    
-    boolean existsByEmail(String email);
-    
-    @Query("SELECT u FROM User u JOIN u.groups g WHERE g.id = :groupId")
-    List<User> findUsersByGroupId(String groupId);
-    
-    @Query("SELECT u FROM User u WHERE u.id IN :userIds")
-    Set<User> findAllByIds(Set<String> userIds);
+//    Optional<User> findByEmail(String email);
+//
+//    boolean existsByEmail(String email);
+//
+//    @Query("SELECT u FROM User u JOIN u.groups g WHERE g.id = :groupId")
+//    List<User> findUsersByGroupId(String groupId);
+//
+//    @Query("SELECT u FROM User u WHERE u.id IN :userIds")
+//    Set<User> findAllByIds(Set<String> userIds);
 }
